@@ -1,11 +1,16 @@
 module.exports.run = async (bot, message, args, db) => {
 
-    db.collection('characters').doc(message.author.id).set({
-        'username' : message.author.username,
-        'userID' : message.author.id
+    db.collection('users').doc(message.author.id).set({
+        'userName' : message.author.username + '#' + message.author.discriminator,
+        'userID' : message.author.id,
+        'characterName' : args
     });
 
-    message.channel.send("This user is added: " +message.author.username);
+    var charactersRef = db.collection('gameCharacters');
+    var test = charactersRef.where("characterName", "==", args[0]);
+    console.log(test);
+
+    message.channel.send(message.author.username + ' has been added as "' + args + '"');
 
 }
 
