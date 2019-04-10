@@ -1,3 +1,5 @@
+console.log("Charles this pinged");
+
 // require packages
 const Discord = require('discord.js');
 const fs = require('fs');

@@ -8,7 +8,6 @@ module.exports.run = async (bot, message, args, db) => {
 
     var charactersRef = db.collection('gameCharacters');
     var test = charactersRef.where("characterName", "==", args[0]);
-    console.log(test);
 
     message.channel.send(message.author.username + ' has been added as "' + args + '"');
 

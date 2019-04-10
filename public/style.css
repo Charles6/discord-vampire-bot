@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+    color: darkred;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+input {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: red;
+    border: none;
+    border-bottom: solid darkred 1px;
+}
+
+input[type=text]:focus {
+    background-color: rgba(200, 0, 0, 0.3);
+    outline: none;
+}
+
+button {
+    margin-top: 20px;
+    background-color: black;
+    color: darkred;
+    border: solid darkred 1px;
+    border-radius: 4px;
+}
+button:hover {
+    background-color: darkred;
+    color:black;
+}
