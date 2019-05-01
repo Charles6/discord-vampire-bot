@@ -9,13 +9,16 @@
     <script defer src="/__/firebase/5.9.2/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/5.9.2/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.9.2/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.9.2/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.9.2/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
 
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <!-- <h1>Welcome to the LA Vampire the Masquerade LARP Page</h1>
+    <h1>Welcome to the LA Vampire the Masquerade LARP Page</h1>
     <div>
       <p>Player</p><input type="text" id="player">
       <p>Character</p><input type="text" id="character">
@@ -24,15 +27,14 @@
       <h4 id="message"></h4>
       <br>
       <button onclick="postData()">Submit</button>
-    </div> -->
-
-    <button onclick="googleSignIn()">Google Signin</button>
+    </div>
+    
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         try {
           let app = firebase.app();
-          let features = ['auth'].filter(feature => typeof app[feature] === 'function');
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
           console.log(`Firebase SDK loaded with ${features.join(', ')}`);
         } catch (e) {
           console.error(e);
@@ -40,16 +42,19 @@
         }
       });
 
-      const googleSignIn = () => {
-          let base_provider = new Firebase.auth.GoogleAuthProvider()
-          firebase.auth.signInWithPopup(base_provider).then(function(result){
-            console.log(result);
-            console.log("Success Google Account Linked");
-          }).catch(function(err){
-            console.log(err);
-            console.log("Failed to do");
-          })
-      }
+      var styles = [
+        'border: 1px solid red',
+        'border-radius: 5px',
+        'background-color: black',
+        'color: red',
+        'display: block',
+        'text-align: center',
+        'font-weight: bold',
+        'font-size: 20px',
+        'font-family: courier'
+      ].join(';');
+      console.log("%c I know you think you can cheat...", styles);
+      console.log("%c I can assure you, you can't.", styles);
     </script>
     <script src="form.js"></script>
   </body>
