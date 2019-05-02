@@ -16,17 +16,849 @@
     <script defer src="/__/firebase/init.js"></script>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="characterCreate.css">
   </head>
   <body>
-    <h1>Welcome to the LA Vampire the Masquerade LARP Page</h1>
-    <div>
-      <p>Player</p><input type="text" id="player">
-      <p>Character</p><input type="text" id="character">
-      <p>Archatype</p><input type="text" id="archatype">
-      <p>Clan</p><input type="text" id="clan">
-      <h4 id="message"></h4>
-      <br>
-      <button onclick="postData()">Submit</button>
+    <!-- <h1>Welcome to the LA Vampire the Masquerade LARP Page</h1> -->
+
+    <div class="windowFrame">
+      <div class="module character">
+        <div class="column">
+          <p>Player</p><input type="text" id="player">
+          <p>Character</p><input type="text" id="character">
+          <p>Archatype</p><input type="text" id="archatype">
+          <p>Clan</p><input type="text" id="clan">
+        </div>
+        <div class="column">
+          <p>Setting/Sect</p><input type="text" id="Sect">
+        </div>
+        <div class="column">
+          <p>Title</p><input type="text" id="Title">
+        </div>
+      </div>
+      <h3>Attributes</h3>
+      <div class="module attributes">
+        <div class="column">
+          <div id="physical" class="attributeStats">
+            <p>Physical</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="bonusAttribute">
+            <p>Focus</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="subAttributes">
+            <input type="checkbox">
+            <p>Strength</p>
+            <input type="checkbox">
+            <p>Dexterity</p>
+            <input type="checkbox">
+            <p>Stamina</p>
+          </div>
+        </div>
+        <div class="column">
+          <div id="social" class="attributeStats">
+            <p>Social</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="bonusAttribute">
+            <p>Focus</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="subAttributes">
+            <input type="checkbox">
+            <p>Charisma</p>
+            <input type="checkbox">
+            <p>Manipulation</p>
+            <input type="checkbox">
+            <p>Appearance</p>
+          </div>
+        </div>
+        <div class="column">
+          <div id="physical" class="attributeStats">
+            <p>Mental</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="bonusAttribute">
+            <p>Focus</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="subAttributes">
+            <input type="checkbox">
+            <p>Perception</p>
+            <input type="checkbox">
+            <p>Intelligence</p>
+            <input type="checkbox">
+            <p>Wits</p>
+          </div>
+        </div>
+      </div>
+      <h3>Skills</h3>
+      <div class="module skills">
+        <div class="column">
+          <div class="skillType">
+            <p class="skillName">Academics</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Animal Ken</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Athletics</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Awareness</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Brawl</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Computer</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Crafts</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Crafts</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Dodge</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Drive</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="skillType">
+            <p class="skillName">Empathy</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Firearms</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Intimidation</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Investigation</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Leadership</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Linguistics</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Lore</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Medicine</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Melee</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Occult</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="skillType">
+            <p class="skillName">Performance</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Performance</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Science</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Science</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Security</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Stealth</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Streetwise</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Subterfuge</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+            <p class="skillName">Survival</p>
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="skillType">
+              <input type="text" id="skillCustom">
+            <div class="fivePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="module history">
+        <div class="column">
+          <h3>Backgrounds</h3>
+          <div id="background">
+            <div class="historyType">
+              <input type="text" id="skillCustom" value="generation">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+          </div>
+          <button onclick="addField('background')">add background</button>
+          <hr>
+          <h3>Blood</h3>
+          <div class="bloodPoints">
+            <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+          </div>
+          <div class="bloodPoints">
+            <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+          </div>
+          <div class="bloodPoints">
+            <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+          </div>
+          
+
+        </div>
+        <div class="column">
+          <h3>Disciplines</h3>
+          <div id="discipline">
+              <div class="historyType">
+                <input type="text" id="skillCustom">
+                <div class="fivePips">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                </div>
+              </div>
+              <div class="historyType">
+                <input type="text" id="skillCustom">
+                <div class="fivePips">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                </div>
+              </div>
+              <div class="historyType">
+                <input type="text" id="skillCustom">
+                <div class="fivePips">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                </div>
+              </div>
+              <div class="historyType">
+                <input type="text" id="skillCustom">
+                <div class="fivePips">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                </div>
+              </div>
+              <div class="historyType">
+                <input type="text" id="skillCustom">
+                <div class="fivePips">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                </div>
+              </div>
+              <div class="historyType">
+                <input type="text" id="skillCustom">
+                <div class="fivePips">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                  <input type="checkbox">
+                </div>
+              </div>
+            </div>
+          <button onclick="addField('discipline')">add discipline</button>
+          <hr>
+          <h3>Willpower</h3>
+          <div class="willpower">
+            1
+            <input type="checkbox">
+            2
+            <input type="checkbox">
+            4
+            <input type="checkbox">
+            5
+            <input type="checkbox">
+            6
+            <input type="checkbox">
+            7
+            <input type="checkbox">
+          </div>
+        </div>
+        <div class="column">
+          <h3>Merits & Flaws</h3>
+
+          <div id="meritFlaw">
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+            <div class="historyType">
+              <input type="text" id="skillCustom">
+              <div class="fivePips">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+              </div>
+            </div>
+          </div>
+          <button onclick="addField('meritFlaw')">add merit or flaw</button>
+          <hr>
+          <h3>Morality</h3>
+          <input type="text">
+          <div class="willpower">
+            1
+            <input type="checkbox">
+            2
+            <input type="checkbox">
+            4
+            <input type="checkbox">
+            5
+            <input type="checkbox">
+            6
+            <input type="checkbox">
+          </div>
+        </div>
+        
+      </div>
+      <div class="module stats">
+        <div class="column">
+          <h3>Health Levels</h3>
+          <div class="statusCol">
+            <p>Healthy</p>
+            <div class="threePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="statusCol">
+            <p>Healthy</p>
+            <div class="threePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <div class="statusCol">
+            <p>Healthy</p>
+            <div class="threePips">
+              <input type="checkbox">
+              <input type="checkbox">
+              <input type="checkbox">
+            </div>
+          </div>
+          <hr>
+          <h3>Status</h3>
+          <div class="statusCol">
+            <input type="text">
+            <input type="text">
+          </div>
+          <div class="statusCol">
+            <input type="text">
+            <input type="text">
+          </div>
+          <div class="statusCol">
+            <input type="text">
+            <input type="text">
+          </div>
+        </div>
+        <div class="column">
+          <h3>Common Test Pools</h3>
+          <h4>Initiative</h4>
+          <input type="text">
+          <br>
+          <div class="testPools">
+            <input type="text">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+          </div>
+          <div class="testPools">
+            <input type="text">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+          </div>
+          <div class="testPools">
+            <input type="text">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+          </div>
+          <div class="testPools">
+            <input type="text">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+          </div>
+          <div class="testPools">
+            <input type="text">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+          </div>
+          <div class="testPools">
+            <input type="text">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+            <input type="number">
+          </div>
+
+ 
+
+        </div>
+        <div class="column">
+          <h3>Beast Traits</h3>
+          <input type="checkbox"> 1 Beast Trait
+          <p class="smallText"><b>Rage</b>: Test if you take 4 damage</p>
+          <p class="smallText"><b>Hungar</b> Test if out of blood</p>
+          <p class="smallText"><b>Fear</b>: Test if immersed in fire or sunlight</p>
+          <input type="checkbox"> 2 Beast Traits
+          <p class="smallText"><b>Rage</b>: Test if you take 3 damage</p>
+          <p class="smallText"><b>Hungar</b> Test if blood is below 1/3</p>
+          <p class="smallText"><b>Fear</b>: Test if burned by fire or sunlight</p>
+          <input type="checkbox"> 3 Beast Traits
+          <p class="smallText"><b>Rage</b>: Test if you take 2 damage</p>
+          <p class="smallText"><b>Hungar</b> Test if blood is below 1/2</p>
+          <p class="smallText"><b>Fear</b>: Standing too close to fire or sunlight</p>
+          <input type="checkbox"> 4 Beast Traits
+          <p class="smallText"><b>Rage</b>: Test if you take any damage</p>
+          <p class="smallText"><b>Hungar</b> Test if not at full blood</p>
+          <p class="smallText"><b>Fear</b>: Seeing sunlight or fire larger than lighter</p>
+          <input type="checkbox"> 5 Beast Traits
+          <p class="smallText"> Lose a permanent point of morality</p>
+        </div>
+      </div>
     </div>
     
 
@@ -41,6 +873,46 @@
           console.log('Error loading the Firebase SDK, check the console.');
         }
       });
+
+
+      // <div class="historyType">
+      //   <input type="text" id="skillCustom">
+      //   <div class="fivePips">
+      //     <input type="checkbox">
+      //     <input type="checkbox">
+      //     <input type="checkbox">
+      //     <input type="checkbox">
+      //     <input type="checkbox">
+      //   </div>
+      // </div>
+
+      const addField = (target) => {
+        let newRow = document.createElement("div");
+        newRow.className = "historyType";
+        let textInput = document.createElement("input");
+        textInput.type = "text";
+        textInput.id = "skillCustom";
+        let pipBox = document.createElement("div");
+        pipBox.className = "fivePips";
+        let checkOne = document.createElement("input");
+        checkOne.type = "checkbox";
+        let checkTwo = document.createElement("input");
+        checkTwo.type = "checkbox";
+        let checkThree = document.createElement("input");
+        checkThree.type = "checkbox";
+        let checkFour = document.createElement("input");
+        checkFour.type = "checkbox";
+        let checkFive = document.createElement("input");
+        checkFive.type = "checkbox";
+        pipBox.appendChild(checkOne);
+        pipBox.appendChild(checkTwo);
+        pipBox.appendChild(checkThree);
+        pipBox.appendChild(checkFour);
+        pipBox.appendChild(checkFive);
+        newRow.appendChild(textInput);
+        newRow.appendChild(pipBox);
+        document.getElementById(target).appendChild(newRow);
+      } 
 
       var styles = [
         'border: 1px solid red',

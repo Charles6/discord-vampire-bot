@@ -1,0 +1,57 @@
+h3, h4, p {
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    background-color: black;
+    border-color: darkred;
+}
+
+.module{
+    width: 100%;
+    border:solid darkred 1px;
+    margin-bottom: 4px;
+    padding: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 4px;
+}
+
+.column{
+    width: 100%;
+    min-height: 60px;
+}
+
+.attributeStats {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.5fr;
+}
+
+.subAttributes {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 4fr 1fr 4fr;
+}
+
+.skillType, .bonusAttribute, .historyType, .bloodPoints, .statusCol {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.fivePips input {
+    float:right;
+}
+
+.smallText{
+    font-size: 12px;
+}
+
+.testPools {
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr 1fr 1fr;
+}
+
+.testPools input {
+    width: 100%;
+    border: solid darkred 1pt;
+}

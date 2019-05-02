@@ -15,18 +15,20 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <!-- <h1>Welcome to the LA Vampire the Masquerade LARP Page</h1>
-    <div>
-      <p>Player</p><input type="text" id="player">
-      <p>Character</p><input type="text" id="character">
-      <p>Archatype</p><input type="text" id="archatype">
-      <p>Clan</p><input type="text" id="clan">
-      <h4 id="message"></h4>
-      <br>
-      <button onclick="postData()">Submit</button>
-    </div> -->
+    <div class="windowFrame">
+      <div class="loginScreen">
+          <h1>Welcome to the LA Vampire the Masquerade LARP Page</h1>
 
-    <button onclick="googleSignIn()">Google Signin</button>
+          <div id="gate">
+            <div id="welcome">
+              <h3>This is a closed group</h3>
+              <h3>Please sign in with your Google Account.</h3>
+              <button onclick="googleSignIn()" id="googleButton">Google Signin</button>
+            </div>
+          </div>
+      </div>
+    </div>
+    
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -41,10 +43,24 @@
       });
 
       const googleSignIn = () => {
-          let base_provider = new Firebase.auth.GoogleAuthProvider()
-          firebase.auth.signInWithPopup(base_provider).then(function(result){
-            console.log(result);
-            console.log("Success Google Account Linked");
+          let base_provider = new firebase.auth.GoogleAuthProvider()
+          firebase.auth().signInWithPopup(base_provider).then(function(result){
+            // console.log(result);
+            console.log("Google Account for " + result.user.displayName + " is now Linked");
+            
+            var welcomeMessage = document.getElementById("welcome");
+            document.getElementById("gate").removeChild(welcomeMessage);
+            
+            var signInGate = document.createElement("div");
+            var signInMessage = document.createElement("h3");
+            signInMessage.textContent = "Welcome back " + result.user.displayName;
+            var signInButton = document.createElement("a");
+            signInButton.textContent = "Create a Character";
+            signInButton.href = "https://www.larp.group/characterCreate.html";
+            signInButton.target = "_parent";
+
+            document.getElementById("gate").appendChild(signInMessage);
+            document.getElementById("gate").appendChild(signInButton);
           }).catch(function(err){
             console.log(err);
             console.log("Failed to do");
